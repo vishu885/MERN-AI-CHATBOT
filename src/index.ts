@@ -10,7 +10,8 @@ const PORT= process.env.PORT || 5000;
   app.listen(PORT,()=>
     console.log("SERVER STARTED AND CONNECTED TO DATABASE")); //1.2 setting up port connections and listeners
 })
- } catch (error) {
+ } 
+ catch (error) {
     console.error(error);
     throw new Error("ERROR");
  }
