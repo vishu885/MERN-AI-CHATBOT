@@ -1,14 +1,13 @@
 import { NextFunction,Request, Response } from "express"
-import { body, ValidationChain, validationResult } from "express-validator"
+import { body, ValidationChain, validationResult } from "express-validator";
+import { loginValidator } from "./loginValidator.js";
 
 //array to declare validations during user signup
 export const signUpValidator=
      [
         body("name").notEmpty().withMessage("Name is required"),
-        body("email").trim().isEmail().withMessage("Email is required"),
-        body("password").trim().isLength({min:4}).withMessage("Password should be minimum 4 characters long")
-
-];
+        ...loginValidator
+     ];
 
 
 //middleware function to check those validation on user signup
